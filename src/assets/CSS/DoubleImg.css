@@ -1,0 +1,59 @@
+.Double-image{
+    margin-bottom:5rem;
+}
+
+.Double-image .container img{
+    width:100%;
+
+}
+
+.Double-image .Images{
+    object-fit: cover;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:2rem; 
+}
+
+.Double-image .DoubleLeft{
+    position:relative;
+
+}
+
+.Double-image .DoubleLeft h1{
+    position:absolute;
+    top:50px;
+    right:-30px;
+    font-weight:bold;
+    color:white;
+    width:50%;
+    font-size:36px;
+}
+
+.Double-image .DoubleLeft a{
+    position:absolute;
+    bottom:100px;
+    right:120px;
+}
+
+.Double-image .DoubleRight{
+    position:relative;
+}
+
+.Double-image .DoubleRight h1{
+    position:absolute;
+    top:50px;
+    left:50px;
+    font-weight:bold;
+    color:black;
+    width:50%;
+    font-size:36px;
+}
+
+.Double-image .DoubleRight a{
+    position:absolute;
+    bottom:100px;
+    left:50px;
+    
+}
+
