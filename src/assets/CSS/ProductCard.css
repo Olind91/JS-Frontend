@@ -10,6 +10,8 @@
         height:210px;
         background-color:var(--color-gray-2);
         position:relative;
+        object-fit: cover;
+        width:100%;
     }
 
     .card .card-body{
