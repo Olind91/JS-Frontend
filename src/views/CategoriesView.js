@@ -6,6 +6,7 @@ const CategoriesView = () => {
   return (
     <>
     <Navbar />
+    
     </>
   )
 }
