@@ -50,17 +50,6 @@ const ContactForm = () => {
   
   
 
-
-
-
-
-
-
-
-
-
-
-  
     return (
     
     <section className="contact-form">
