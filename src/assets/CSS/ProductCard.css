@@ -22,7 +22,7 @@
     .card .card-menu{
         position:absolute;
         top:10px;
-        right:10px;
+        right:5px;
         display:none;
     }
 
@@ -31,13 +31,13 @@
             text-decoration: none;
             width:36px;
             height:36px;
-            padding-left:9px;
-            padding-top:8px;
-            margin:0.5rem;
+            margin-left:20px;
             border-radius:50%;
+            justify-content: center;
+            margin:0.5rem;
             background-color:white;
             color:var(--color-dark);
-            box-shadow: 0 0 6px 3px var(--color-shadow);
+            box-shadow: 0 3px 6px 3px var(--color-dark);
             transition:0.2s ease-in-out;
             border: none;
             outline:none;
