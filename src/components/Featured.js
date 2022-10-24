@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from '../components/UniversalItems/ProductCard';
 
-const Featured = ({title, products}) => {
+const Featured = ({title, featProducts}) => {
 
   
 
@@ -11,7 +11,7 @@ const Featured = ({title, products}) => {
             <h5 className="f-title">{title}</h5>
             <div className="row row-cols-1 row-cols-md-4 g4">
                 {
-                  products.map(product => <ProductCard key={product.id} product={product} />)
+                  featProducts.map(product => <ProductCard key={product.id} product={product} />)
                 }
                 
             </div>

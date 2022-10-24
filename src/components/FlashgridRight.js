@@ -2,15 +2,14 @@ import React from 'react'
 import FlashSaleButton from './UniversalItems/FlashSaleButton'
 import ProductCard from './UniversalItems/ProductCard'
 
-const FlashgridRight = () => {
+const FlashgridRight = ({flashProducts2}) => {
   return (
     <section className="flash-grid">
         <div className="container">
             <div className="row row-cols-1 row-cols-md-2 g4">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
+              {
+                flashProducts2.map(product => <ProductCard key={product.id} product={product} />)
+              }
             </div>
             
             <div className="flash-grid-box">
