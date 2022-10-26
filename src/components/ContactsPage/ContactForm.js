@@ -10,10 +10,10 @@ const ContactForm = () => {
 
     const [canSubmit, setCanSubmit] = useState(false)
 
-    
+   
 
     const validate = (values) => {
-        
+       
         const errors = {}
         const regex_email = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         const regex_name = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
@@ -41,12 +41,11 @@ const ContactForm = () => {
             
             setCanSubmit(true)
             
-        else
+       else
             setCanSubmit(false)
 
             
         return errors;
-        
     }
 
     
@@ -59,18 +58,24 @@ const ContactForm = () => {
     }
 
     const handleSubmit = (e) => {
+        
+        e.preventDefault()
+
+        if(canSubmit === true)
+            
+        console.log(contactForm)
+            
+        else
+            console.log(formErrors)
+        }
+  
+    const handleKeyUp = (e) => {
         setFormErrors(validate(contactForm))
         e.preventDefault()
     }
-  
     
     
-    const handleKeyUp = (e) => {
-        e.preventDefault()
-    }
     
-    
-  
     
     
     
@@ -83,45 +88,35 @@ const ContactForm = () => {
     
     <section className="contact-form">
         <div className="container">
-            {
-            canSubmit  ?
             
-            (<div className="d-flex">
-                <div>Thank you for your feedback! We probably wont be in touch since we have a lot of stuff to do.</div>
-            </div>)
-            :
-            (
-            <>
-                
-                <div><p className="contact">Come in Contact with Us</p></div>
+        <div><p className="contact">Come in Contact with Us</p></div>
 
-                    <form onSubmit = {handleSubmit} noValidate>
-                        <div className="inputs">
-                            
-                            <div className="names nameMail">
-                                <input id="name" type="text" placeholder="Your name" value={contactForm.name} onChange={handleChange} onKeyUp={handleKeyUp} required></input>
-                                <div className="errorMessage">{formErrors.name}</div>
-                            </div>
+            <form onSubmit={handleSubmit} noValidate>
+                <div className="inputs">
+                    
+                    <div className="names nameMail">
+                        <input id="name" type="text" placeholder="Your name" value={contactForm.name} onChange={handleChange} onKeyUp={handleKeyUp}  required></input>
+                        <div className="errorMessage">{formErrors.name}</div>
+                    </div>
 
-                            <div className="mail nameMail">
-                                <input id="email" type="email" placeholder="Your mail" value={contactForm.email} onChange={handleChange} onKeyUp={handleKeyUp} required></input>
-                                <div className="errorMessage">{formErrors.email}</div>
-                            </div>
-                        </div>
+                    <div className="mail nameMail">
+                        <input id="email" type="email" placeholder="Your mail" value={contactForm.email} onChange={handleChange} onKeyUp={handleKeyUp} required></input>
+                        <div className="errorMessage">{formErrors.email}</div>
+                    </div>
+                </div>
 
-                        <div className="write">
-                            <textarea id="comment" placeholder="Comments" value={contactForm.comment} onChange={handleChange} onKeyUp={handleKeyUp} required></textarea>
-                            <div className="errorMessage">{formErrors.comment}</div>
-                        </div>
+                <div className="write">
+                    <textarea id="comment" placeholder="Comments" value={contactForm.comment} onChange={handleChange} onKeyUp={handleKeyUp} required></textarea>
+                    <div className="errorMessage">{formErrors.comment}</div>
+                </div>
 
-                        <button type="submit" className="theme-button">Post Comments</button>
-                    </form>
-            </>
-                )
-            }
+                <button type="submit" className="theme-button" onClick={handleSubmit}>Post Comments</button>
+            </form>
+
+      
         </div>
     </section>
-  )
+    )
 }
 
 
