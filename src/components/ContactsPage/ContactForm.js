@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-
-
 const ContactForm = () => {
     
     
@@ -10,114 +8,190 @@ const ContactForm = () => {
 
     const [canSubmit, setCanSubmit] = useState(false)
 
+    
+
    
 
-    const validate = (values) => {
-       
-        const errors = {}
-        const regex_email = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        const regex_name = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
-        
-        if(!values.name)
-            errors.name = "You must enter a name"
-            if(values.name == "Hans") //Hehehehehe
-                errors.name ="You must enter a valid name"
-            else if(!regex_name.test(values.name))
-                errors.name = "Please spell your name correctly"
-        
-        
-        if(!values.email)
-            errors.email = "You must enter an e-mail address"
-        else if (!regex_email.test(values.email))
-            errors.email = "You must enter a valid e-mail address (eg. ooga@hotmail.com"
 
-        if(!values.comment)
-            errors.comment = "You must enter a comment"
-        else if(values.comment.length < 5)
-            errors.comment = "Your comment must be at least 5 characters"
-
+         const validateName = (value) => {
         
-            if(Object.keys(errors).length === 0 )
-            
-            setCanSubmit(true)
-            
-       else
-            setCanSubmit(false)
-
-            
-        return errors;
-    }
-
+            const regex_name = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
     
-
-    const handleChange = (e) => {
-        const {id, value} = e.target
-        setContactForm({...contactForm, [id]: value})
+                if(!value.name)
+                return"You must enter a name"
         
-       
-    }
-
-    const handleSubmit = (e) => {
-        
-        e.preventDefault()
-
-        if(canSubmit === true)
+    
+                else if(value.name.length < 2)
+                return"Your Name must be atleast 2 characters long"
             
-        console.log(contactForm)
+    
+                else if(!regex_name.test(value.name))
+                return "Please use letters and ',.'-' these characters only "
+    
             
-        else
-            console.log(formErrors)
+                else
+                return null;  
         }
-  
-    const handleKeyUp = (e) => {
-        setFormErrors(validate(contactForm))
-        e.preventDefault()
-    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    return (
-    
-    <section className="contact-form">
-        <div className="container">
+        const validateEmail = (value) => {
+                   
+            const regex_email = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
             
-        <div><p className="contact">Come in Contact with Us</p></div>
-
-            <form onSubmit={handleSubmit} noValidate>
-                <div className="inputs">
+            if(!value.email)
+             return "You must enter an email"
+         
+            else if (!regex_email.test(value.email))
+             return "You must enter a valid e-mail address (eg. detvarsvårtmedvalidering@snällahjälpmig.com)"
+    
+            else
+                return null
+            
+            
+        }
+    
+        const validateComment = (value) => {
+             
+            if(!value.comment)
+            return "You must enter a comment"
+           
+    
+            else if(value.comment.length < 5)
+            return "Your comment must be atleast five characters long"
+    
                     
-                    <div className="names nameMail">
-                        <input id="name" type="text" placeholder="Your name" value={contactForm.name} onChange={handleChange} onKeyUp={handleKeyUp}  required></input>
-                        <div className="errorMessage">{formErrors.name}</div>
-                    </div>
+            else
+            return null;
+        }
+        
+        const handleValidationData =(data) => {
+            const  errors={}
+    
+            errors.name = validateName(data)
+            errors.email = validateEmail(data)
+            errors.comment = validateComment(data)
+       
+            if(errors.name === null && errors.email === null && errors.comment === null) {
+                console.log('can submit')
+                setCanSubmit(true)
+            
+            } else {
+                console.log('can not submit')
+                setCanSubmit(false)      
+            }
+       
+               
 
-                    <div className="mail nameMail">
-                        <input id="email" type="email" placeholder="Your mail" value={contactForm.email} onChange={handleChange} onKeyUp={handleKeyUp} required></input>
-                        <div className="errorMessage">{formErrors.email}</div>
-                    </div>
+           
+    
+                   }
+    
+        let inputName = 'validSuccessName'
+            if(formErrors.name)
+            inputName = 'validFailName'
+    
+        let inputEmail = 'validSuccessEmail'
+            if(formErrors.email)
+                inputEmail ='validFailEmail'
+    
+        let inputComment = 'validSuccessComment'
+                if(formErrors.comment)
+                    inputComment ='validFailComment'
+    
+    
+        const handleChange = (e) => {
+            e.preventDefault()
+            const {id, value} = e.target
+                setContactForm({...contactForm, [id]: value})
+        }
+    
+       
+        const handleKeyUpName = (e) => {
+            setFormErrors({...formErrors, name: validateName(contactForm)})
+           
+        }
+    
+        
+        const handleKeyUpEmail = (e) => {
+            setFormErrors({...formErrors, email: validateEmail(contactForm)})
+            
+        }
+    
+        
+        const handleKeyUpComment = (e) => {
+            setFormErrors({...formErrors, comment: validateComment(contactForm)})
+            
+    
+        }
+        const handleSubmit= (e) => {
+            e.preventDefault()
+            handleValidationData(contactForm)
+            
+         }
+
+
+
+
+         return (
+    
+            <section className="contact-form">
+                <div className="container">
+                
+                {
+                    canSubmit ?
+
+                (<div>Thank you!</div>)
+
+                :
+                (      
+                     
+               <>
+               
+                <div><p className="contact">Come in Contact with Us</p></div>
+        
+                    <form onSubmit={handleSubmit} noValidate>
+                        <div className="inputs border">
+                            
+                            <div className={inputName}>
+                                <input id="name" type="text" placeholder="Your name" value={contactForm.name} onChange={handleChange} onKeyUp={handleKeyUpName}></input>
+                                <div className="errorMessage">{formErrors.name}</div>
+                            </div>
+        
+                            <div className={inputEmail}>
+                                <input id="email" type="email" placeholder="Your mail" value={contactForm.email} onChange={handleChange} onKeyUp={handleKeyUpEmail}></input>
+                                <div className="errorMessage">{formErrors.email}</div>
+                            </div>
+                        </div>
+        
+                        <div className={inputComment}>
+                            <textarea id="comment" placeholder="Comments" value={contactForm.comment} onChange={handleChange} onKeyUp={handleKeyUpComment}></textarea>
+                            <div className="errorMessage">{formErrors.comment}</div>
+                        </div>
+        
+                        <button type="submit" className="theme-button"  >Post Comments</button>
+                    </form>
+                    </>
+               
+               
+               )
+
+            }
                 </div>
+            </section>
+            )
+        }
 
-                <div className="write">
-                    <textarea id="comment" placeholder="Comments" value={contactForm.comment} onChange={handleChange} onKeyUp={handleKeyUp} required></textarea>
-                    <div className="errorMessage">{formErrors.comment}</div>
-                </div>
 
-                <button type="submit" className="theme-button" onClick={handleSubmit}>Post Comments</button>
-            </form>
 
-      
-        </div>
-    </section>
-    )
-}
+
+
+
+
+
+
+
+
+
+
 
 
 export default ContactForm
