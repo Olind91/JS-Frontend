@@ -1,14 +1,18 @@
-import React from 'react'
+/*import React from 'react'
 import FlashSaleButton from './UniversalItems/FlashSaleButton'
 import ProductCard from './UniversalItems/ProductCard'
 
-const FlashgridRight = ({flashProducts2}) => {
+
+const FlashgridRight = ({items = []}) => {
+
+  
+
   return (
     <section className="flash-grid">
         <div className="container">
             <div className="row row-cols-1 row-cols-md-2 g4">
               {
-                flashProducts2.map(product => <ProductCard key={product.id} product={product} />)
+                items.map(product => <ProductCard key={product.articleNumber} item={product} />)
               }
             </div>
             
@@ -22,4 +26,4 @@ const FlashgridRight = ({flashProducts2}) => {
   )
 }
 
-export default FlashgridRight
+export default FlashgridRight*/

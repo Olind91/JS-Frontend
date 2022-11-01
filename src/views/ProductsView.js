@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Featured from '../components/Featured';
 import Navbar from '../components/UniversalItems/Navbar';
-import ProductCard from '../components/UniversalItems/ProductCard';
+import { ProductContext } from '../contexts/context';
 
 const ProductsView = () => {
+
+  const productContext = useContext(ProductContext)
+
+
+
+
+
   return (
     <>
     <Navbar />
-    
+    <Featured title="All Products" items={productContext.allProducts}/>
     </>
   )
 }

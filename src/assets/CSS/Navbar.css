@@ -1,10 +1,13 @@
 .Navbar{
-    background-color:var(--color-gray-1);
+   
     display:flex;
         justify-content: space-evenly;
         align-items: center;
 }
 
+ .homepage .Navbar{
+    background-color:var(--color-gray-1);
+}
 
     
     

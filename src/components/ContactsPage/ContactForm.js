@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 const ContactForm = () => {
     
     
-    const [contactForm, setContactForm] = useState({name: '', email: '', comment: ''})
+    const [contactForm, setContactForm] = useState({name: '', email: '', comments: ''})
 
     const [formErrors, setFormErrors] = useState({})
 
@@ -49,14 +49,14 @@ const ContactForm = () => {
             
         }
     
-        const validateComment = (value) => {
+        const validatecomments = (value) => {
              
-            if(!value.comment)
-            return "You must enter a comment"
+            if(!value.comments)
+            return "You must enter a comments"
            
     
-            else if(value.comment.length < 5)
-            return "Your comment must be atleast five characters long"
+            else if(value.comments.length < 5)
+            return "Your comments must be atleast five characters long"
     
                     
             else
@@ -68,22 +68,42 @@ const ContactForm = () => {
     
             errors.name = validateName(data)
             errors.email = validateEmail(data)
-            errors.comment = validateComment(data)
+            errors.comments = validatecomments(data)
        
-            if(errors.name === null && errors.email === null && errors.comment === null) {
-                console.log('can submit')
-                setCanSubmit(true)
-            
-            } else {
-                console.log('can not submit')
-                setCanSubmit(false)      
-            }
+            if(errors.name === null && errors.email === null && errors.comments === null) {
+                let json = JSON.stringify(data)
+                console.log(json)
+        
+                fetch('https://win22-webapi.azurewebsites.net/api/contactform', {
+                method: 'POST' ,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:json,
+            })
+            .then(res => {
+                console.log(res.status)
+                console.log('submitted')
+                if(res.status === 200) {
+                    setCanSubmit(true)
+                }
+        
+                else
+                    setCanSubmit(false)
+                    
+                    
+             })
+        }}
+               
+               
+               
+           
        
                
 
            
     
-                   }
+                   
     
         let inputName = 'validSuccessName'
             if(formErrors.name)
@@ -93,9 +113,9 @@ const ContactForm = () => {
             if(formErrors.email)
                 inputEmail ='validFailEmail'
     
-        let inputComment = 'validSuccessComment'
-                if(formErrors.comment)
-                    inputComment ='validFailComment'
+        let inputcomments = 'validSuccesscomments'
+                if(formErrors.comments)
+                    inputcomments ='validFailcomments'
     
     
         const handleChange = (e) => {
@@ -117,8 +137,8 @@ const ContactForm = () => {
         }
     
         
-        const handleKeyUpComment = (e) => {
-            setFormErrors({...formErrors, comment: validateComment(contactForm)})
+        const handleKeyUpcomments = (e) => {
+            setFormErrors({...formErrors, comments: validatecomments(contactForm)})
             
     
         }
@@ -139,7 +159,7 @@ const ContactForm = () => {
                 {
                     canSubmit ?
 
-                (<div>Thank you!</div>)
+                (<div className="alert alert-success text-center"  role="alert" >Thank you for your comments!</div>)
 
                 :
                 (      
@@ -149,25 +169,29 @@ const ContactForm = () => {
                 <div><p className="contact">Come in Contact with Us</p></div>
         
                     <form onSubmit={handleSubmit} noValidate>
-                        <div className="inputs border">
+                        <div className="inputs">
                             
-                            <div className={inputName}>
-                                <input id="name" type="text" placeholder="Your name" value={contactForm.name} onChange={handleChange} onKeyUp={handleKeyUpName}></input>
-                                <div className="errorMessage">{formErrors.name}</div>
+                            <div className="inputBoxes">
+                                <div className={inputName}>
+                                    <input id="name" type="text" placeholder="Your name" value={contactForm.name} onChange={handleChange} onKeyUp={handleKeyUpName}></input>
+                                    <div className="errorMessage">{formErrors.name}</div>
+                                </div>
                             </div>
-        
-                            <div className={inputEmail}>
-                                <input id="email" type="email" placeholder="Your mail" value={contactForm.email} onChange={handleChange} onKeyUp={handleKeyUpEmail}></input>
-                                <div className="errorMessage">{formErrors.email}</div>
+
+                            <div className="inputBoxes">
+                                <div className={inputEmail}>
+                                    <input id="email" type="email" placeholder="Your mail" value={contactForm.email} onChange={handleChange} onKeyUp={handleKeyUpEmail}></input>
+                                    <div className="errorMessage">{formErrors.email}</div>
+                                </div>
                             </div>
                         </div>
+            
+                            <div className={inputcomments}>
+                                <textarea id="comments" placeholder="Comments" value={contactForm.comments} onChange={handleChange} onKeyUp={handleKeyUpcomments}></textarea>
+                                <div className="errorMessage">{formErrors.comments}</div>
+                            </div>
         
-                        <div className={inputComment}>
-                            <textarea id="comment" placeholder="Comments" value={contactForm.comment} onChange={handleChange} onKeyUp={handleKeyUpComment}></textarea>
-                            <div className="errorMessage">{formErrors.comment}</div>
-                        </div>
-        
-                        <button type="submit" className="theme-button"  >Post Comments</button>
+                        <button type="submit" className="theme-button"  >Post comments</button>
                     </form>
                     </>
                
