@@ -1,4 +1,4 @@
-/*import React from 'react'
+import React from 'react'
 import FlashSaleButton from './UniversalItems/FlashSaleButton'
 import ProductCard from './UniversalItems/ProductCard'
 
@@ -26,4 +26,4 @@ const FlashgridRight = ({items = []}) => {
   )
 }
 
-export default FlashgridRight*/
+export default FlashgridRight

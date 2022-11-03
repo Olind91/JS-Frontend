@@ -24,8 +24,8 @@ return (
      <Showcase />
      <Featured title="Featured Products" items={productContext.featuredProducts}/>
      <DoubleImg />
-     {/* <FlashgridLeft items={productContext.flashGridProducts}/>  */}
-     {/* <FlashgridRight /> */}
+     <FlashgridLeft items={productContext.flashGridProducts}/>
+     <FlashgridRight items={productContext.flashGridProducts}/>
      <Support />
      <Footer />
      </div>

@@ -1,10 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
     <header className="contacts">
         <div className="container">
-           <a className="clink" href="#"><i class="fa-sharp fa-solid fa-house"></i><span>Contacts</span></a>
+           <NavLink className="clink" to="/"><i className="fa-sharp fa-solid fa-house"></i><span>Contacts</span></NavLink>
         </div>
     </header>
   )

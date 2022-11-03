@@ -26,11 +26,12 @@ function App() {
   const [products, setProducts] = useState({
     allProducts:[],
     featuredProducts:[],
-    //flashGridProducts:[]
+    flashGridProducts:[],
     
   })
   
   useEffect (() => {
+    
     const fetchAllProducts = async () => {
       let result = await fetch ('https://win22-webapi.azurewebsites.net/api/products')
       setProducts({...products, allProducts: await result.json()})
@@ -46,12 +47,13 @@ function App() {
     fetchFeaturedProducts()
   
   
-    /*const fetchFlashGridProducts = async () => {
+    const fetchFlashGridProducts = async () => {
       let result = await fetch ('https://win22-webapi.azurewebsites.net/api/products?take=4')
       setProducts({...products, flashGridProducts: await result.json()})
     }
-    fetchFlashGridProducts()*/
- 
+    fetchFlashGridProducts()
+
+   
  
  
   },[setProducts])
@@ -66,7 +68,7 @@ function App() {
           <Route path="/" element={<HomeView/>} />
           <Route path="/categories" element={<CategoriesView />} />
           <Route path="/products" element={<ProductsView />} />
-          <Route path="/products/:id" element={<ProductDetailsView />} />
+          <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
           <Route path="/contacts" element={<ContactsView />} />
           <Route path="/search" element={<SearchView />} />
           <Route path="/compare" element={<CompareView />} />
