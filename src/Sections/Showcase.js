@@ -1,13 +1,13 @@
 import React from 'react'
 import img1 from '../assets/images/1.png'
 import img2 from '../assets/images/2.png'
-import ShopNowButton from './UniversalItems/ShopNowButton'
+import ShopNowButton from '../components/UniversalItems/ShopNowButton'
 
 const Showcase = () => {
   return (
     <section className ="Showcase">
         <div className="container">
-            <img src={img1} className="img-left"></img>
+             <img src={img1} className="img-left"></img> 
             
             <div className="showcase-text">
                 <h1>SALE UP</h1>

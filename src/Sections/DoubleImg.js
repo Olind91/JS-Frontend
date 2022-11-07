@@ -1,8 +1,8 @@
 import React from 'react'
-import ImgL from '../assets/images/5.png'
-import ImgR from '../assets/images/6.png'
-import FlashSaleButton from './UniversalItems/FlashSaleButton'
-import ShopNowButton from './UniversalItems/ShopNowButton'
+import ImgL from '../assets/images/img-3.svg'
+import ImgR from '../assets/images/img-4.svg'
+import FlashSaleButton from '../components/UniversalItems/FlashSaleButton'
+import ShopNowButton from '../components/UniversalItems/ShopNowButton'
 
 const DoubleImg = () => {
   return (
@@ -10,7 +10,7 @@ const DoubleImg = () => {
         <div className="container">
             <div className="Images">
                 <div className="DoubleLeft">
-                    <img src={ImgL} alt="something"></img>
+                     <img src={ImgL} alt="something"></img>
                     <div className="DoubleText">
                         <h1>Pamela Reif's Top Picks</h1>
                         <ShopNowButton/>

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import Navbar from '../components/UniversalItems/Navbar';
-import Showcase from '../components/Showcase';
-import Support from '../components/Support';
+import Showcase from '../Sections/Showcase';
+import Support from '../Sections/Support';
 import Footer from '../components/UniversalItems/Footer';
-import FlashgridLeft from '../components/FlashgridLeft';
-import FlashgridRight from '../components/FlashgridRight';
-import Featured from '../components/Featured';
-import DoubleImg from '../components/DoubleImg';
+import FlashgridLeft from '../Sections/FlashgridLeft';
+import FlashgridRight from '../Sections/FlashgridRight';
+import Featured from '../Sections/Featured';
+import DoubleImg from '../Sections/DoubleImg';
 import { FeaturedProductsContext, GridProductsContext } from '../contexts/context';
 
 

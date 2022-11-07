@@ -1,7 +1,7 @@
 import React from 'react'
-import FlashSaleButton from './UniversalItems/FlashSaleButton'
-import ProductCard from './UniversalItems/ProductCard'
-import imgFlashL from '../assets/images/7.png'
+import FlashSaleButton from '../components/UniversalItems/FlashSaleButton'
+import ProductCard from '../components/UniversalItems/ProductCard'
+
 
 const FlashgridLeft = ({items = []}) => {
 
@@ -12,7 +12,7 @@ const FlashgridLeft = ({items = []}) => {
     <section className="flash-grid">
       <div className="container">
         <div className="flash-grid-box">
-        <img src={imgFlashL} className="img-left"></img>
+       
           <h1 className="flash-grid-title">2 FOR USD $29</h1>
             <FlashSaleButton/>
         </div>
