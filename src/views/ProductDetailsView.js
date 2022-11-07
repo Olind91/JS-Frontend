@@ -9,11 +9,10 @@ const ProductDetailsView = () => {
 
   
 
-
   return (
     <>
     <Navbar />
-    <ProductDetail/>
+    <ProductDetail />
     <Footer />
     </>
     

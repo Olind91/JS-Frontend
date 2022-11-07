@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ProductContext } from './contexts/context';
+import { ProductsContext, FeaturedProductsContext, GridProductsContext } from './contexts/context';
 import HomeView from './views/HomeView';
 import ContactsView from './views/ContactsView';
 import NotFoundView from './views/NotFoundView';
@@ -21,49 +21,41 @@ import ProductDetailsView from './views/ProductDetailsView';
 
 function App() {
   
+    const [products, setProducts] = useState([])
+    const [featured, setFeatured] = useState([])
+    const [gridProducts, setGridProducts] = useState([])
   
-
-  const [products, setProducts] = useState({
-    allProducts:[],
-    featuredProducts:[],
-    flashGridProducts:[],
-    
-  })
+    useEffect(() => {
+      const fetchAllData = async () => {
+        const result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
+        setProducts(await result.json())
+      }
+      fetchAllData()
   
-  useEffect (() => {
-    
-    const fetchAllProducts = async () => {
-      let result = await fetch ('https://win22-webapi.azurewebsites.net/api/products')
-      setProducts({...products, allProducts: await result.json()})
-    }
-    fetchAllProducts()
-  
-    
-    const fetchFeaturedProducts = async () => {
-      let result = await fetch ('https://win22-webapi.azurewebsites.net/api/products?take=8')
-      setProducts({...products, featuredProducts: await result.json()})
       
-    }
-    fetchFeaturedProducts()
-  
-  
-    const fetchFlashGridProducts = async () => {
-      let result = await fetch ('https://win22-webapi.azurewebsites.net/api/products?take=4')
-      setProducts({...products, flashGridProducts: await result.json()})
-    }
-    fetchFlashGridProducts()
+      const fetchFeaturedData = async () => {
+        const result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')
+        setFeatured(await result.json())
+      }
+      fetchFeaturedData()
 
-   
- 
- 
-  },[setProducts])
+      const fetchGridData = async () => {
+        const result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')
+        setGridProducts(await result.json())
+      }
+      fetchGridData()
+    
+  
+    }, [setProducts, setFeatured, setGridProducts])
   
   
   
   return (
     
     <BrowserRouter>
-      <ProductContext.Provider value={products}>
+      <ProductsContext.Provider value={products}>
+        <FeaturedProductsContext.Provider value={featured}>
+        <GridProductsContext.Provider value={gridProducts}>
         <Routes>
           <Route path="/" element={<HomeView/>} />
           <Route path="/categories" element={<CategoriesView />} />
@@ -77,7 +69,9 @@ function App() {
           
           <Route path="*" element={<NotFoundView />} />
         </Routes>
-      </ProductContext.Provider>
+        </GridProductsContext.Provider>
+        </FeaturedProductsContext.Provider>
+      </ProductsContext.Provider>
      </BrowserRouter>
      
      

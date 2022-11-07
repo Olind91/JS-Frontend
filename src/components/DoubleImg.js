@@ -1,6 +1,6 @@
 import React from 'react'
-import ImgL from '../assets/images/img-3.svg'
-import ImgR from '../assets/images/img-4.svg'
+import ImgL from '../assets/images/5.png'
+import ImgR from '../assets/images/6.png'
 import FlashSaleButton from './UniversalItems/FlashSaleButton'
 import ShopNowButton from './UniversalItems/ShopNowButton'
 

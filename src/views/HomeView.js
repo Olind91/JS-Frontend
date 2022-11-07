@@ -7,25 +7,25 @@ import FlashgridLeft from '../components/FlashgridLeft';
 import FlashgridRight from '../components/FlashgridRight';
 import Featured from '../components/Featured';
 import DoubleImg from '../components/DoubleImg';
-import { ProductContext } from '../contexts/context';
+import { FeaturedProductsContext, GridProductsContext } from '../contexts/context';
 
 
 
 
 const HomeView = () => {
 
-  const productContext = useContext(ProductContext)
-  
+  const products = useContext(FeaturedProductsContext)
+  const gridProducts = useContext(GridProductsContext)
 
 return (
     <>
     <div className="homepage">
     <Navbar />
      <Showcase />
-     <Featured title="Featured Products" items={productContext.featuredProducts}/>
+     <Featured title="Featured Products" items={products}/>
      <DoubleImg />
-     <FlashgridLeft items={productContext.flashGridProducts}/>
-     <FlashgridRight items={productContext.flashGridProducts}/>
+     <FlashgridLeft items={gridProducts}/>
+     <FlashgridRight items={gridProducts}/>
      <Support />
      <Footer />
      </div>
