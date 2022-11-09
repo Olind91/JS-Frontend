@@ -17,7 +17,6 @@
 
 .Double-image .DoubleLeft{
     position:relative;
-
 }
 
 .Double-image .DoubleLeft h1{
@@ -57,3 +56,46 @@
     
 }
 
+
+/* Pamela Reif button */
+.Double-image .DoubleLeft .theme-button{
+    background-color:var(--color-dark);
+    color:var(--color-white);
+}
+
+.Double-image .DoubleLeft .theme-button .btn-theme-left{
+    border-left:1px solid var(--color-white);
+   border-top:1px solid var(--color-white);
+}
+
+.Double-image .DoubleLeft .theme-button .btn-theme-right{
+    border-right:1px solid var(--color-white);
+   border-bottom:1px solid var(--color-white);
+}
+
+.Double-image .DoubleLeft .theme-button:hover{
+    color:var(--color-theme);
+}
+
+
+
+/* Lets be conscious button */
+.Double-image .DoubleRight .theme-button{
+    background-color:var(--color-white);
+    color:var(--color-dark);
+}
+
+.Double-image .DoubleRight .theme-button .btn-theme-left{
+    border-left:1px solid var(--color-dark);
+   border-top:1px solid var(--color-dark);
+}
+
+.Double-image .DoubleRight .theme-button .btn-theme-right{
+    border-right:1px solid var(--color-dark);
+    border-bottom:1px solid var(--color-dark);
+}
+
+.Double-image .DoubleRight .theme-button:hover{
+    
+    color:var(--color-theme);
+}

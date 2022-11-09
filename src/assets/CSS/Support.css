@@ -3,7 +3,7 @@
 .Support .container{
     padding:3rem 0;
     margin-bottom:2rem;
-    border-top:1px solid var(--color-dark);
+    border-top:2px solid rgb(216, 213, 213);
 }
 
 .Support .support-b{

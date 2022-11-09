@@ -35,51 +35,6 @@
 
 
 
-.flash-grid-box .theme-button{
-    background-color:var(--color-white);
-    color:var(--color-dark);
-}
-
-.flash-grid-box .theme-button .btn-theme-left{
-    border-left:1px solid var(--color-dark);
-   border-top:1px solid var(--color-dark);
-}
-
-.flash-grid-box .theme-button .btn-theme-right{
-    border-right:1px solid var(--color-dark);
-   border-bottom:1px solid var(--color-dark);
-}
-
-.flash-grid-box .theme-button:hover{
-    background-color:var(--color-dark);
-    color:var(--color-theme);
-}
-
-    .flash-grid-box .theme-button:hover .btn-theme-left{
-        border-top:1px solid var(--color-white);
-        border-left:1px solid var(--color-white);
-    }
-
-    .flash-grid-box .theme-button:hover .btn-theme-right{
-        border-right:1px solid var(--color-white);
-        border-bottom:1px solid var(--color-white);
-    }
-
-
-
-
-.card .theme-button{
-    position:absolute;
-    bottom:0;
-    justify-content: center;
-    display:none;
-    width:100%;
-    
-}
-
-.card:hover .theme-button{
-display:flex;
-}
 
 
 
@@ -90,44 +45,8 @@ display:flex;
 
 
 
-.Double-image .DoubleLeft .theme-button{
-    background-color:var(--color-dark);
-    color:var(--color-white);
-}
-
-.Double-image .DoubleLeft .theme-button .btn-theme-left{
-    border-left:1px solid var(--color-white);
-   border-top:1px solid var(--color-white);
-}
-
-.Double-image .DoubleLeft .theme-button .btn-theme-right{
-    border-right:1px solid var(--color-white);
-   border-bottom:1px solid var(--color-white);
-}
-
-
-.Double-image .DoubleLeft .theme-button:hover{
-    color:var(--color-theme);
-}
 
 
 
-.Double-image .DoubleRight .theme-button{
-    background-color:var(--color-white);
-    color:var(--color-dark);
-}
 
-.Double-image .DoubleRight .theme-button .btn-theme-left{
-    border-left:1px solid var(--color-dark);
-   border-top:1px solid var(--color-dark);
-}
 
-.Double-image .DoubleRight .theme-button .btn-theme-right{
-    border-right:1px solid var(--color-dark);
-    border-bottom:1px solid var(--color-dark);
-}
-
-.Double-image .DoubleRight .theme-button:hover{
-    
-    color:var(--color-theme);
-}

@@ -73,5 +73,19 @@
             font-size:18px;
             font-weight:600;
         }
+        
 
+/* Productcard Button */
+.card .theme-button{
+    position:absolute;
+    bottom:0;
+    justify-content: center;
+    display:none;
+    width:100%;
+    
+}
+
+.card:hover .theme-button{
+display:flex;
+}
         

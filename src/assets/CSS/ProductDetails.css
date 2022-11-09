@@ -9,18 +9,14 @@
     
 }
 
-
-
 /* Vänstra sidan */
 .detailFlex .gridBoxLarge{
     background-color: rgb(199, 196, 196);
     height:360px;
     width:500px;
-    
 }
 
 .detailFlex .smallBoxes{
-    
     display:flex;
     justify-content: space-between;
     margin-top:2rem;
@@ -37,8 +33,6 @@
     grid-template-columns: 2;
     grid-template-rows: 3;
     text-align: center;
-    
-    
 }
 
 /* Högra sidan */
@@ -126,17 +120,13 @@
 
 
 
-
-
+/* Stökig CSS, var inte helt säker på hur jag skulle få till detta på ett bra sätt */
 
 .detailFlex .detailsInfo .detailsRight .description{
     margin-top:3.5rem;
-    
 }
 .detailFlex .detailsInfo .detailsRight .size{
     margin-top:3.5rem;
-    
-    
 }
 .detailFlex .detailsInfo .detailsRight .color{
     margin-top:3.5rem;
