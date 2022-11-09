@@ -9,7 +9,7 @@ const ContactsView = () => {
   return (
     <>
     <Navbar />
-    <Header />
+    <Header title="Contacts"/>
     <ContactsImage />
     <ContactForm />
     <Footer />
