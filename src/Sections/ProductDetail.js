@@ -10,7 +10,7 @@ const ProductDetail = ({}) => {
     <section className="detailFlex">
       <div className="container">
         <div className="detailGrid">
-          <div className="gridBoxLarge">Här ska det JS:as in produkten man valt</div>
+          <div className="gridBoxLarge"></div>
             <div className="smallBoxes">
               <div className="gridBoxSmall">Röd</div>
               <div className="gridBoxSmall">Blå</div>
@@ -20,7 +20,7 @@ const ProductDetail = ({}) => {
       
         <div className="detailsInfo">
           <div className="detailsRight">
-            <div className="title">JS:a in title m.m här</div>
+            <div className="title">Title m.m här</div>
             <div className="description">Discovered had get considered projection who favourable. Necessary up knowledge it tolerably.
              Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly</div>
             

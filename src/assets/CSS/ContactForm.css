@@ -55,9 +55,13 @@
     color:var(--color-theme);
 }
 
-.alert{
-    justify-content: center;
-    height:5rem;
+
+
+.contact-form .container .alert{
+    height:100px;
+    text-align: center;
+    padding-top:30px;
     font-size:25px;
     font-weight:bold;
 }
+

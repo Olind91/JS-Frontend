@@ -159,7 +159,7 @@ const ContactForm = () => {
                 {
                     canSubmit ?
 
-                (<div className="alert alert-success text-center"  role="alert" >Thank you for your comments!</div>)
+                (<div className="alert alert-success"  role="alert" >Thank you for your comments!</div>)
 
                 :
                 (      

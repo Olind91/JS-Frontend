@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Featured from '../Sections/Featured';
 import Navbar from '../components/UniversalItems/Navbar';
 import { ProductsContext } from '../contexts/context';
-import Header from '../components/ContactsPage/Header';
+import Header from '../Sections/Header';
 
 const ProductsView = () => {
 

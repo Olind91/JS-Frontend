@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/UniversalItems/Navbar';
-import Header from '../components/ContactsPage/Header';
+import Header from '../Sections/Header';
 
 const CategoriesView = () => {
   return (
