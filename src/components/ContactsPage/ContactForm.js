@@ -97,15 +97,7 @@ const ContactForm = () => {
                
                
                
-           
-       
-               
-
-           
-    
-                   
-    
-        let inputName = 'validSuccessName'
+          let inputName = 'validSuccessName'
             if(formErrors.name)
             inputName = 'validFailName'
     
